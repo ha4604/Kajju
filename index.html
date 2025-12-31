@@ -1,1 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Kajju 💖</title>
 
+<!-- Classic Romantic Font -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Playfair Display', serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+/* ---------- POLL ---------- */
+#poll {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff9acb, #ff5fa2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+
+#poll h1 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+.poll-btn {
+  padding: 15px 40px;
+  margin: 10px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  background: #fff;
+  color: #ff3f8b;
+  transition: 0.3s;
+}
+
+.poll-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ---------- HEART ---------- */
+#heartScreen {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.heart {
+  width: 100px;
+  height: 100px;
+  background: pink;
+  position: relative;
+  transform: rotate(-45deg);
+  animation: zoomHeart 3s forwards;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  width: 100px;
+  height: 100px;
+  background: pink;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart::before { top: -50px; }
+.heart::after { left: 50px; }
+
+@keyframes zoomHeart {
+  to { transform: scale(20) rotate(-45deg); }
+}
+
+/* ---------- NIGHT SCENE ---------- */
+#scene {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at bottom, #1b2735, #090a0f);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Moon */
+.moon {
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50px;
+  right: 80px;
+  box-shadow: 0 0 40px #fff;
+}
+
+/* Stars */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+/* Floating hearts */
+.floating {
+  position: absolute;
+  animation: floatUp 8s linear infinite;
+  font-size: 24px;
+}
+
+@keyframes floatUp {
+  from { bottom: -50px; opacity: 0; }
+  to { bottom: 110%; opacity: 1; }
+}
+
+/* ---------- GLASS CARD ---------- */
+.card {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 88%;
+  max-width: 650px;
+  padding: 35px;
+  border-radius: 30px;
+  text-align: center;
+
+  background: rgba(255, 182, 217, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 182, 217, 0.3);
+  box-shadow: 0 0 40px rgba(255, 105, 180, 0.5);
+  color: #fff;
+}
+
+.card h1 {
+  font-size: 2.8rem;
+  color: #ffb6d9;
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-size: 1.35rem;
+  line-height: 1.8;
+  min-height: 280px;
+}
+
+/* Cats */
+.cat {
+  position: absolute;
+  bottom: 20px;
+  font-size: 50px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- POLL -->
+<div id="poll">
+  <h1>Wanna see your surprise? 💝</h1>
+  <button class="poll-btn" onclick="startSurprise()">Yes 😍</button>
+  <button class="poll-btn" onclick="startSurprise()">Obviously 😘</button>
+</div>
+
+<!-- HEART -->
+<div id="heartScreen">
+  <div class="heart"></div>
+</div>
+
+<!-- FINAL SCENE -->
+<div id="scene">
+  <div class="moon"></div>
+
+  <div class="card">
+    <h1>Happy New Year Kajju Daarlingggggg… 🎉💖</h1>
+    <p id="typingText"></p>
+  </div>
+
+  <div class="cat" style="left:30px;">🐱</div>
+  <div class="cat" style="right:30px;">🐈‍⬛</div>
+</div>
+
+<script>
+const message = `
+A brand new year, a fresh beginning 🌸
+And I want to start it holding your hand 🤍
+
+May this year bring us
+more smiles 😊
+more late-night talks 🌙
+more hugs 🤗
+and endless love ❤️
+
+You are my favorite feeling 💕
+My safe place 🏡
+My forever 🥺💫
+
+Happy New Beginning,
+my Kajju Daarlingggggg… 💖✨
+`;
+
+let index = 0;
+const speed = 40;
+
+function typeEffect() {
+  if (index < message.length) {
+    document.getElementById("typingText").innerHTML +=
+      message.charAt(index) === "\n" ? "<br>" : message.charAt(index);
+    index++;
+    setTimeout(typeEffect, speed);
+  }
+}
+
+function startSurprise() {
+  poll.style.display = "none";
+  heartScreen.style.display = "flex";
+
+  setTimeout(() => {
+    heartScreen.style.display = "none";
+    scene.style.display = "block";
+    createStars();
+    createHearts();
+    typeEffect();
+  }, 3000);
+}
+
+function createStars() {
+  for (let i = 0; i < 120; i++) {
+    const star = document.createElement("div");
+    star.className = "star";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.left = Math.random() * 100 + "%";
+    scene.appendChild(star);
+  }
+}
+
+function createHearts() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "floating";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "%";
+    scene.appendChild(heart);
+    setTimeout(() => heart.remove(), 8000);
+  }, 500);
+}
+</script>
+
+</body>
+</html>
