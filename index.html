@@ -2,185 +2,193 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For Kajju 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Year Surprise 💖</title>
 
 <!-- Classic Romantic Font -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Playfair Display', serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Dancing Script', cursive;
 }
 
-body {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background: #000;
+body{
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  background:#000;
 }
 
 /* ---------- POLL ---------- */
-#poll {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #ff9acb, #ff5fa2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-align: center;
+#poll{
+  width:100%;
+  height:100%;
+  background:linear-gradient(135deg,#ff9acb,#ff5fa2);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  padding:20px;
 }
 
-#poll h1 {
-  font-size: 3rem;
-  margin-bottom: 30px;
+#poll h1{
+  font-size:2.6rem;
+  margin-bottom:25px;
 }
 
-.poll-btn {
-  padding: 15px 40px;
-  margin: 10px;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 40px;
-  cursor: pointer;
-  background: #fff;
-  color: #ff3f8b;
-  transition: 0.3s;
+.poll-btn{
+  padding:14px 35px;
+  margin:10px;
+  font-size:1.4rem;
+  border:none;
+  border-radius:40px;
+  cursor:pointer;
+  background:#fff;
+  color:#ff3f8b;
+  transition:0.3s;
 }
 
-.poll-btn:hover {
-  transform: scale(1.1);
+.poll-btn:hover{
+  transform:scale(1.1);
 }
 
 /* ---------- HEART ---------- */
-#heartScreen {
-  display: none;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  position: absolute;
-  top: 0;
-  left: 0;
-  align-items: center;
-  justify-content: center;
+#heartScreen{
+  display:none;
+  width:100%;
+  height:100%;
+  background:#000;
+  position:absolute;
+  top:0;
+  left:0;
+  align-items:center;
+  justify-content:center;
 }
 
-.heart {
-  width: 100px;
-  height: 100px;
-  background: pink;
-  position: relative;
-  transform: rotate(-45deg);
-  animation: zoomHeart 3s forwards;
+.heart{
+  width:90px;
+  height:90px;
+  background:pink;
+  transform:rotate(-45deg);
+  animation:zoomHeart 3s forwards;
+  position:relative;
 }
 
-.heart::before,
-.heart::after {
-  content: '';
-  width: 100px;
-  height: 100px;
-  background: pink;
-  border-radius: 50%;
-  position: absolute;
+.heart::before,.heart::after{
+  content:'';
+  width:90px;
+  height:90px;
+  background:pink;
+  border-radius:50%;
+  position:absolute;
 }
 
-.heart::before { top: -50px; }
-.heart::after { left: 50px; }
+.heart::before{top:-45px;}
+.heart::after{left:45px;}
 
-@keyframes zoomHeart {
-  to { transform: scale(20) rotate(-45deg); }
+@keyframes zoomHeart{
+  to{transform:scale(22) rotate(-45deg);}
 }
 
 /* ---------- NIGHT SCENE ---------- */
-#scene {
-  display: none;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at bottom, #1b2735, #090a0f);
-  position: relative;
-  overflow: hidden;
+#scene{
+  display:none;
+  width:100%;
+  height:100%;
+  background:radial-gradient(circle at bottom,#1b2735,#090a0f);
+  position:relative;
+  overflow:hidden;
 }
 
 /* Moon */
-.moon {
-  width: 120px;
-  height: 120px;
-  background: #fff;
-  border-radius: 50%;
-  position: absolute;
-  top: 50px;
-  right: 80px;
-  box-shadow: 0 0 40px #fff;
+.moon{
+  width:90px;
+  height:90px;
+  background:#fff;
+  border-radius:50%;
+  position:absolute;
+  top:40px;
+  right:40px;
+  box-shadow:0 0 30px #fff;
 }
 
 /* Stars */
-.star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
-  animation: twinkle 3s infinite alternate;
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  animation:twinkle 3s infinite alternate;
 }
 
-@keyframes twinkle {
-  from { opacity: 0.3; }
-  to { opacity: 1; }
+@keyframes twinkle{
+  from{opacity:.3;}
+  to{opacity:1;}
 }
 
 /* Floating hearts */
-.floating {
-  position: absolute;
-  animation: floatUp 8s linear infinite;
-  font-size: 24px;
+.floating{
+  position:absolute;
+  font-size:22px;
+  animation:floatUp 8s linear infinite;
 }
 
-@keyframes floatUp {
-  from { bottom: -50px; opacity: 0; }
-  to { bottom: 110%; opacity: 1; }
+@keyframes floatUp{
+  from{bottom:-40px;opacity:0;}
+  to{bottom:110%;opacity:1;}
 }
 
-/* ---------- GLASS CARD ---------- */
-.card {
-  position: absolute;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 88%;
-  max-width: 650px;
-  padding: 35px;
-  border-radius: 30px;
-  text-align: center;
+/* ---------- TRANSPARENT CARD ---------- */
+.card{
+  position:absolute;
+  bottom:40px;
+  left:50%;
+  transform:translateX(-50%);
+  width:92%;
+  max-width:600px;
+  padding:22px;
+  text-align:center;
+  border-radius:22px;
 
-  background: rgba(255, 182, 217, 0.18);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background:rgba(255,182,217,0.15);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
 
-  border: 1px solid rgba(255, 182, 217, 0.3);
-  box-shadow: 0 0 40px rgba(255, 105, 180, 0.5);
-  color: #fff;
+  border:1px solid rgba(255,182,217,0.3);
+  box-shadow:0 0 25px rgba(255,105,180,0.45);
+  color:#fff;
 }
 
-.card h1 {
-  font-size: 2.8rem;
-  color: #ffb6d9;
-  margin-bottom: 15px;
+.card h1{
+  font-size:2.4rem;
+  color:#ffb6d9;
 }
 
-.card p {
-  font-size: 1.35rem;
-  line-height: 1.8;
-  min-height: 280px;
+#typingText{
+  font-size:1.25rem;
+  margin-top:15px;
+  line-height:1.7;
+  min-height:220px;
 }
 
 /* Cats */
-.cat {
-  position: absolute;
-  bottom: 20px;
-  font-size: 50px;
+.cat{
+  position:absolute;
+  bottom:15px;
+  font-size:42px;
+}
+
+/* ---------- MOBILE OPTIMIZATION ---------- */
+@media(max-width:480px){
+  #poll h1{font-size:2.1rem;}
+  .card h1{font-size:2rem;}
+  #typingText{font-size:1.15rem;}
 }
 </style>
 </head>
@@ -205,17 +213,17 @@ body {
 
   <div class="card">
     <h1>Happy New Year Kajju Daarlingggggg… 🎉💖</h1>
-    <p id="typingText"></p>
+    <div id="typingText"></div>
   </div>
 
-  <div class="cat" style="left:30px;">🐱</div>
-  <div class="cat" style="right:30px;">🐈‍⬛</div>
+  <div class="cat" style="left:20px;">🐱</div>
+  <div class="cat" style="right:20px;">🐈‍⬛</div>
 </div>
 
 <script>
 const message = `
-A brand new year, a fresh beginning 🌸
-And I want to start it holding your hand 🤍
+A brand new year… a fresh beginning 🌸
+And I want to start it with you 🤍
 
 May this year bring us
 more smiles 😊
@@ -223,99 +231,58 @@ more late-night talks 🌙
 more hugs 🤗
 and endless love ❤️
 
-You are my favorite feeling 💕
-My safe place 🏡
-My forever 🥺💫
+Kajju Daarlingggggg…
+you are my favorite feeling 💕
+my safe place 🏡
+my forever 🥺✨
 
-Happy New Beginning,
-my Kajju Daarlingggggg… 💖✨
+Happy New Beginning, my heart 💖
 `;
 
 let index = 0;
-const speed = 40;
 
-function typeEffect() {
-  if (index < message.length) {
-    document.getElementById("typingText").innerHTML +=
-      message.charAt(index) === "\n" ? "<br>" : message.charAt(index);
+function startTyping(){
+  if(index < message.length){
+    typingText.innerHTML += message.charAt(index);
     index++;
-    setTimeout(typeEffect, speed);
+    setTimeout(startTyping, 40);
   }
 }
 
-function startSurprise() {
-  poll.style.display = "none";
-  heartScreen.style.display = "flex";
+function startSurprise(){
+  poll.style.display="none";
+  heartScreen.style.display="flex";
 
-  setTimeout(() => {
-    heartScreen.style.display = "none";
-    scene.style.display = "block";
+  setTimeout(()=>{
+    heartScreen.style.display="none";
+    scene.style.display="block";
     createStars();
     createHearts();
-    typeEffect();
-  }, 3000);
+    startTyping();
+  },3000);
 }
 
-function createStars() {
-  for (let i = 0; i < 120; i++) {
-    const star = document.createElement("div");
-    star.className = "star";
-    star.style.top = Math.random() * 100 + "%";
-    star.style.left = Math.random() * 100 + "%";
+function createStars(){
+  for(let i=0;i<120;i++){
+    const star=document.createElement("div");
+    star.className="star";
+    star.style.top=Math.random()*100+"%";
+    star.style.left=Math.random()*100+"%";
     scene.appendChild(star);
   }
 }
 
-function createHearts() {
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "floating";
-    heart.innerHTML = "💖";
-    heart.style.left = Math.random() * 100 + "%";
+function createHearts(){
+  setInterval(()=>{
+    const heart=document.createElement("div");
+    heart.className="floating";
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"%";
     scene.appendChild(heart);
-    setTimeout(() => heart.remove(), 8000);
-  }, 500);
+    setTimeout(()=>heart.remove(),8000);
+  },600);
 }
 </script>
-/* ---------- MOBILE OPTIMIZATION ---------- */
-@media (max-width: 768px) {
-
-  #poll h1 {
-    font-size: 2.2rem;
-  }
-
-  .poll-btn {
-    font-size: 1.2rem;
-    padding: 12px 30px;
-  }
-
-  .moon {
-    width: 80px;
-    height: 80px;
-    top: 30px;
-    right: 30px;
-  }
-
-  .card {
-    width: 92%;
-    padding: 25px;
-    bottom: 30px;
-  }
-
-  .card h1 {
-    font-size: 2rem;
-  }
-
-  .card p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    min-height: 220px;
-  }
-
-  .cat {
-    font-size: 36px;
-  }
-}
 
 </body>
 </html>
