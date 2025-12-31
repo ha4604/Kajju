@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>New Year Surprise 💖</title>
 
-<!-- Classic Romantic Font -->
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -17,105 +16,97 @@
 }
 
 body{
-  width:100vw;
-  height:100vh;
-  overflow:hidden;
   background:#000;
+  color:#fff;
 }
 
 /* ---------- POLL ---------- */
 #poll{
-  width:100%;
-  height:100%;
-  background:linear-gradient(135deg,#ff9acb,#ff5fa2);
+  min-height:100svh;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+  background:linear-gradient(135deg,#ff9acb,#ff5fa2);
   text-align:center;
-  color:#fff;
   padding:20px;
 }
 
 #poll h1{
-  font-size:2.6rem;
+  font-size:clamp(1.8rem,6vw,2.6rem);
   margin-bottom:25px;
 }
 
 .poll-btn{
-  padding:14px 35px;
+  padding:14px 32px;
   margin:10px;
-  font-size:1.4rem;
+  font-size:clamp(1.2rem,4vw,1.4rem);
   border:none;
   border-radius:40px;
   cursor:pointer;
   background:#fff;
   color:#ff3f8b;
-  transition:0.3s;
-}
-
-.poll-btn:hover{
-  transform:scale(1.1);
 }
 
 /* ---------- HEART ---------- */
 #heartScreen{
   display:none;
-  width:100%;
-  height:100%;
+  min-height:100svh;
   background:#000;
-  position:absolute;
-  top:0;
-  left:0;
+  display:flex;
   align-items:center;
   justify-content:center;
 }
 
 .heart{
-  width:90px;
-  height:90px;
+  width:80px;
+  height:80px;
   background:pink;
   transform:rotate(-45deg);
-  animation:zoomHeart 3s forwards;
   position:relative;
+  animation:zoomHeart 3s forwards;
 }
 
 .heart::before,.heart::after{
   content:'';
-  width:90px;
-  height:90px;
+  width:80px;
+  height:80px;
   background:pink;
   border-radius:50%;
   position:absolute;
 }
 
-.heart::before{top:-45px;}
-.heart::after{left:45px;}
+.heart::before{top:-40px;}
+.heart::after{left:40px;}
 
 @keyframes zoomHeart{
-  to{transform:scale(22) rotate(-45deg);}
+  to{transform:scale(18) rotate(-45deg);}
 }
 
-/* ---------- NIGHT SCENE ---------- */
+/* ---------- SCENE ---------- */
 #scene{
   display:none;
-  width:100%;
-  height:100%;
+  min-height:100svh;
   background:radial-gradient(circle at bottom,#1b2735,#090a0f);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
   position:relative;
   overflow:hidden;
 }
 
 /* Moon */
 .moon{
-  width:90px;
-  height:90px;
+  width:80px;
+  height:80px;
   background:#fff;
   border-radius:50%;
   position:absolute;
-  top:40px;
-  right:40px;
-  box-shadow:0 0 30px #fff;
+  top:20px;
+  right:20px;
+  box-shadow:0 0 25px #fff;
 }
 
 /* Stars */
@@ -124,90 +115,80 @@ body{
   width:2px;
   height:2px;
   background:white;
-  animation:twinkle 3s infinite alternate;
+  opacity:.8;
 }
 
-@keyframes twinkle{
-  from{opacity:.3;}
-  to{opacity:1;}
-}
-
-/* Floating hearts */
+/* Hearts */
 .floating{
   position:absolute;
-  font-size:22px;
+  bottom:-30px;
+  font-size:20px;
   animation:floatUp 8s linear infinite;
 }
 
 @keyframes floatUp{
-  from{bottom:-40px;opacity:0;}
-  to{bottom:110%;opacity:1;}
+  to{
+    transform:translateY(-120svh);
+    opacity:0;
+  }
 }
 
-/* ---------- TRANSPARENT CARD ---------- */
+/* ---------- CARD ---------- */
 .card{
-  position:absolute;
-  bottom:40px;
-  left:50%;
-  transform:translateX(-50%);
-  width:92%;
-  max-width:600px;
-  padding:22px;
-  text-align:center;
-  border-radius:22px;
-
-  background:rgba(255,182,217,0.15);
+  width:100%;
+  max-width:560px;
+  background:rgba(255,182,217,0.18);
   backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-
-  border:1px solid rgba(255,182,217,0.3);
-  box-shadow:0 0 25px rgba(255,105,180,0.45);
-  color:#fff;
+  border-radius:22px;
+  padding:20px;
+  text-align:center;
+  box-shadow:0 0 25px rgba(255,105,180,.45);
 }
 
 .card h1{
-  font-size:2.4rem;
+  font-size:clamp(1.8rem,6vw,2.4rem);
   color:#ffb6d9;
+  margin-bottom:10px;
 }
 
 #typingText{
-  font-size:1.25rem;
-  margin-top:15px;
+  font-size:clamp(1.1rem,4vw,1.3rem);
   line-height:1.7;
-  min-height:220px;
+  max-height:55svh;
+  overflow:auto;
+  padding-right:5px;
 }
 
 /* Cats */
 .cat{
+  font-size:36px;
   position:absolute;
-  bottom:15px;
-  font-size:42px;
+  bottom:10px;
 }
 
-/* ---------- MOBILE OPTIMIZATION ---------- */
-@media(max-width:480px){
-  #poll h1{font-size:2.1rem;}
-  .card h1{font-size:2rem;}
-  #typingText{font-size:1.15rem;}
+.cat.left{left:10px;}
+.cat.right{right:10px;}
+
+/* Extra safety for very small phones */
+@media(max-width:360px){
+  .moon{width:60px;height:60px;}
+  .cat{font-size:30px;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- POLL -->
 <div id="poll">
   <h1>Wanna see your surprise? 💝</h1>
   <button class="poll-btn" onclick="startSurprise()">Yes 😍</button>
   <button class="poll-btn" onclick="startSurprise()">Obviously 😘</button>
 </div>
 
-<!-- HEART -->
 <div id="heartScreen">
   <div class="heart"></div>
 </div>
 
-<!-- FINAL SCENE -->
 <div id="scene">
   <div class="moon"></div>
 
@@ -216,8 +197,8 @@ body{
     <div id="typingText"></div>
   </div>
 
-  <div class="cat" style="left:20px;">🐱</div>
-  <div class="cat" style="right:20px;">🐈‍⬛</div>
+  <div class="cat left">🐱</div>
+  <div class="cat right">🐈‍⬛</div>
 </div>
 
 <script>
@@ -239,13 +220,13 @@ my forever 🥺✨
 Happy New Beginning, my heart 💖
 `;
 
-let index = 0;
+let index=0;
 
 function startTyping(){
-  if(index < message.length){
-    typingText.innerHTML += message.charAt(index);
+  if(index<message.length){
+    typingText.innerHTML+=message.charAt(index);
     index++;
-    setTimeout(startTyping, 40);
+    setTimeout(startTyping,40);
   }
 }
 
@@ -255,7 +236,7 @@ function startSurprise(){
 
   setTimeout(()=>{
     heartScreen.style.display="none";
-    scene.style.display="block";
+    scene.style.display="flex";
     createStars();
     createHearts();
     startTyping();
@@ -263,24 +244,24 @@ function startSurprise(){
 }
 
 function createStars(){
-  for(let i=0;i<120;i++){
-    const star=document.createElement("div");
-    star.className="star";
-    star.style.top=Math.random()*100+"%";
-    star.style.left=Math.random()*100+"%";
-    scene.appendChild(star);
+  for(let i=0;i<100;i++){
+    const s=document.createElement("div");
+    s.className="star";
+    s.style.top=Math.random()*100+"%";
+    s.style.left=Math.random()*100+"%";
+    scene.appendChild(s);
   }
 }
 
 function createHearts(){
   setInterval(()=>{
-    const heart=document.createElement("div");
-    heart.className="floating";
-    heart.innerHTML="💖";
-    heart.style.left=Math.random()*100+"%";
-    scene.appendChild(heart);
-    setTimeout(()=>heart.remove(),8000);
-  },600);
+    const h=document.createElement("div");
+    h.className="floating";
+    h.innerHTML="💖";
+    h.style.left=Math.random()*100+"%";
+    scene.appendChild(h);
+    setTimeout(()=>h.remove(),8000);
+  },700);
 }
 </script>
 
