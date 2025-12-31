@@ -53,7 +53,6 @@ body{
   display:none;
   min-height:100svh;
   background:#000;
-  display:flex;
   align-items:center;
   justify-content:center;
 }
@@ -88,13 +87,14 @@ body{
   display:none;
   min-height:100svh;
   background:radial-gradient(circle at bottom,#1b2735,#090a0f);
+  padding:20px;
+  position:relative;
+  overflow:hidden;
+
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  padding:20px;
-  position:relative;
-  overflow:hidden;
 }
 
 /* Moon */
@@ -118,7 +118,7 @@ body{
   opacity:.8;
 }
 
-/* Hearts */
+/* Floating hearts */
 .floating{
   position:absolute;
   bottom:-30px;
@@ -156,7 +156,6 @@ body{
   line-height:1.7;
   max-height:55svh;
   overflow:auto;
-  padding-right:5px;
 }
 
 /* Cats */
@@ -168,27 +167,24 @@ body{
 
 .cat.left{left:10px;}
 .cat.right{right:10px;}
-
-/* Extra safety for very small phones */
-@media(max-width:360px){
-  .moon{width:60px;height:60px;}
-  .cat{font-size:30px;}
-}
 </style>
 </head>
 
 <body>
 
+<!-- STEP 1: POLL -->
 <div id="poll">
   <h1>Wanna see your surprise? 💝</h1>
   <button class="poll-btn" onclick="startSurprise()">Yes 😍</button>
   <button class="poll-btn" onclick="startSurprise()">Obviously 😘</button>
 </div>
 
+<!-- STEP 2: HEART -->
 <div id="heartScreen">
   <div class="heart"></div>
 </div>
 
+<!-- STEP 3: FINAL SCENE -->
 <div id="scene">
   <div class="moon"></div>
 
@@ -223,19 +219,25 @@ Happy New Beginning, my heart 💖
 let index=0;
 
 function startTyping(){
-  if(index<message.length){
-    typingText.innerHTML+=message.charAt(index);
+  if(index < message.length){
+    typingText.innerHTML += message.charAt(index);
     index++;
     setTimeout(startTyping,40);
   }
 }
 
 function startSurprise(){
+  // STEP 1 → hide poll
   poll.style.display="none";
+
+  // STEP 2 → show heart
   heartScreen.style.display="flex";
 
   setTimeout(()=>{
+    // STEP 3 → hide heart
     heartScreen.style.display="none";
+
+    // STEP 4 → show final scene
     scene.style.display="flex";
     createStars();
     createHearts();
